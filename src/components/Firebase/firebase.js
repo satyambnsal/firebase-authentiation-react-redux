@@ -37,13 +37,12 @@ class Firebase {
               emailVerified: authUser.emailVerified,
               ...dbUser,
             };
-            console.log(`authUser:: listener:: ${user}`);
+            // console.log(`authUser:: listener:: ${user}`);
             next(user);
           });
       } else {
-        console.log(`Now user is not available`);
+        // console.log(`Now user is not available`);
         fallback();
-        //TODO: handle case if user is not logged in
       }
     });
   };

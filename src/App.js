@@ -8,7 +8,7 @@ import SignUpPage from './components/SignUpPage';
 import withAuthentication from './components/Session/withAuthentication';
 import * as ROUTES from './constants/routes';
 
-console.log(`API Key: ${process.env.REACT_APP_API_KEY}`);
+// console.log(`API Key: ${process.env.REACT_APP_API_KEY}`);
 
 function App() {
   return (

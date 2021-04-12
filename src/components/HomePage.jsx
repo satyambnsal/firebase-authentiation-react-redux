@@ -13,7 +13,7 @@ const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 function HomePage() {
   const match = useRouteMatch();
-  console.log(match);
+  // console.log(match);
   const [posts, setPosts] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -25,7 +25,7 @@ function HomePage() {
         setPosts(jsonResponse);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setErrorMessage(error.message);
       });
   }, []);

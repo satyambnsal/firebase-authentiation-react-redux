@@ -10,8 +10,8 @@ function SignInPage(props) {
     firebase
       .doGoogleSignIn()
       .then((authUser) => {
-        console.log({ email: authUser.email, username: authUser.displayName });
-        console.log(authUser);
+        // console.log({ email: authUser.email, username: authUser.displayName });
+        // console.log(authUser);
         return firebase.user(authUser.user.uid).set({
           email: authUser.user.email,
           username: authUser.user.displayName,
