@@ -54,5 +54,5 @@ const store = createStore(
 
 ## References
 
-https://firebase.google.com/docs/database/web/read-and-write
-https://create-react-app.dev/docs/adding-custom-environment-variables/
+- https://firebase.google.com/docs/database/web/read-and-write
+- https://create-react-app.dev/docs/adding-custom-environment-variables/
