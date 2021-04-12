@@ -1,12 +1,19 @@
-import { StrictMode } from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import FirebaseContext from './components/Firebase/context';
+import Firebase from './components/Firebase/firebase';
+import App from './App';
+import store from './store';
 
-import App from "./App";
-
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <FirebaseContext.Provider value={new Firebase()}>
+        <App />
+      </FirebaseContext.Provider>
+    </Provider>
   </StrictMode>,
   rootElement
 );

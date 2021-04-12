@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Link, useRouteMatch, Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useRouteMatch, Switch, Route } from 'react-router-dom';
 // import Posts from "./Posts";
-import Post from "./Post";
-import PostsNavigation from "./PostsNavigation";
-const API_BASE_URL = "https://jsonplaceholder.typicode.com";
+import Post from './Post';
+import PostsNavigation from './PostsNavigation';
+import withAuthorization from './Session/withAuthorization';
+const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 /**
  * https://xk5wz.csb.app/home/posts/sunt%20aut%20facere%20repellat%20provident%20occaecati%20excepturi%20optio%20reprehenderit
  * https://xk5wz.csb.app/home/posts
  */
 
-export default function HomePage() {
+function HomePage() {
   const match = useRouteMatch();
   console.log(match);
   const [posts, setPosts] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/posts`)
@@ -30,7 +31,7 @@ export default function HomePage() {
   }, []);
 
   if (errorMessage) {
-    return <p style={{ color: "red" }}>{errorMessage}</p>;
+    return <p style={{ color: 'red' }}>{errorMessage}</p>;
   }
   const allPostRoutes = posts.map(({ id, title, body }) => (
     <Route path={`${match.path}/posts/${title}`} key={id}>
@@ -56,3 +57,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+export default withAuthorization(HomePage);
